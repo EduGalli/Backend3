@@ -25,19 +25,9 @@ app.use("/api/mocks", mocksRouter);
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
 
-//SWAGGER: Libreria que me permite documentar la Aplicación. 
-//https://swagger.io
-//1) Instalamos: npm install swagger-jsdoc swagger-ui-express
 
-//swagger-jsdoc: nos deja escribir la configuracion en un archivo .yaml (tambien en json) y a partir de ahi se genera un apidoc. 
-
-//swagger-ui-express: nos permitirá linkear una interfaz grafica para podes visualizar la documentación. 
-
-//2) Importamos: 
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from "swagger-ui-express"; 
-
-//3) Creamos un objeto de configuración: swaggerOptions 
 
 const swaggerOptions = {
     definition: {
@@ -49,8 +39,6 @@ const swaggerOptions = {
     },
     apis: ["./src/docs/**/*.yaml"]
 }
-
-//4) Conectamos Swagger a nuestro servidor de Express: 
 
 const specs = swaggerJSDoc(swaggerOptions);
 
