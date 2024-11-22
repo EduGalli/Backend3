@@ -1,0 +1,1 @@
+Imagen en DockerHub (https://hub.docker.com/r/edugalli/proyectofinal)

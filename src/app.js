@@ -2,17 +2,22 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 
+mongoose.set("strictQuery", false);
+
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
 import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
+import config from "./config/config.js";
 
 //Importamos el nuevo router de mocks: 
 import mocksRouter from "./routes/mocks.router.js"; 
 
 const app = express();
-const PORT = process.env.PORT||8080;
-const connection = mongoose.connect("mongodb+srv://eduardogalli89:coderhouse@cluster0.sk8uaq4.mongodb.net/backend3")
+const PORT = config.app.PORT;
+const CONNECTION_STRING = config.mongo.URL;
+
+mongoose.connect(CONNECTION_STRING);
 
 app.use(express.json());
 app.use(cookieParser());
